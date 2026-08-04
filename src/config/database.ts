@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://mongodb-node-1:27017,mongodb-node-2:27017,mongodb-node-3:27017/vdi_control_plane?replicaSet=rs0&readPreference=primaryPreferred';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/vdi_control_plane';
 
 export const connectDatabase = async (): Promise<void> => {
   try {

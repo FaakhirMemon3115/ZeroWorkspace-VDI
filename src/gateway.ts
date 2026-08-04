@@ -1,3 +1,4 @@
+import * as dotenv from 'dotenv';
 import express, { Application, Request, Response } from 'express';
 import { createServer } from 'http';
 import helmet from 'helmet';
