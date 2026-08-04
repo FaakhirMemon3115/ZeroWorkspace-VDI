@@ -1,6 +1,6 @@
 import { Server as HTTPServer } from 'http';
 import { Server, Socket } from 'socket.io';
-import jwt from 'jsonwebtoken';
+import * as jwt from 'jsonwebtoken';
 
 let io: Server;
 

@@ -15,7 +15,8 @@ export const jwtAuthMiddleware = (req: Request, res: Response, next: NextFunctio
   const token = typeof authHeader === 'string' ? authHeader.replace('Bearer ', '') : undefined;
 
   if (!token) {
-    return res.status(401).json({ error: 'UNAUTHORIZED', message: 'Missing JWT token.' });
+    res.status(401).json({ error: 'UNAUTHORIZED', message: 'Missing JWT token.' });
+    return;
   }
 
   try {
@@ -30,6 +31,7 @@ export const jwtAuthMiddleware = (req: Request, res: Response, next: NextFunctio
     next();
   } catch (err) {
     console.error('JWT verification failed:', err);
-    return res.status(401).json({ error: 'UNAUTHORIZED', message: 'Invalid JWT token.' });
+    res.status(401).json({ error: 'UNAUTHORIZED', message: 'Invalid JWT token.' });
+    return;
   }
 };
